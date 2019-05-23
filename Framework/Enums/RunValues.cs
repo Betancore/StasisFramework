@@ -1,0 +1,36 @@
+﻿namespace ProductX.Framework.Enums
+{
+	public enum RunValues
+	{
+		Env,
+		Tenant,
+		Username,
+		Password,
+		BaseUrl,
+		Zap,
+		ZapPort,
+		Browser,
+		Timeout,
+		PollingInterval,
+		RetryCount,
+		UseLocalData,
+		UpdateTestData,
+		BsUser,
+		BsKey,
+		BsPlatform,
+		BsBrowser,
+		BsBrowserVersion,
+		BsOs,
+		BsOsVersion,
+		BsBrowserName,
+		BsOsPlatform,
+		BsResolution,
+		BsDevice,
+		BsRemoteServer,
+		SwServer,
+		SwUsername,
+		SwPassword,
+		SwDbName,
+		SwEnv
+	}
+}
