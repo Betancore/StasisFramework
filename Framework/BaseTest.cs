@@ -40,7 +40,7 @@ namespace ProductX.Framework
 		[TearDown]
 		public void TearDown()
 		{
-			if (SettingsHelper.GetValue(SettingsValues.Env).ToLower() == SeleniumServerLocations.Remote)
+			if (SettingsHelper.GetValue(SettingsValues.Environment).ToLower() == SeleniumServerLocations.Remote)
 			{
 				BrowserstackHelper.SetSessionStatus(
 					TestContext.CurrentContext.Result.Outcome.Status.ToString().ToLower() == SessionStatuses.Failed.GetValue()

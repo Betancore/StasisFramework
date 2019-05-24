@@ -12,7 +12,7 @@ namespace ProductX.Framework.Helpers
 	public static class SettingsHelper
 	{
 		private static readonly XmlDocument XmlDoc = new XmlDocument();
-		public const string ResourcePath = "../../resources/";
+		public const string ResourcePath = "Resources/";
 		public const string SettingsFileName = "settings.xml";
 		public const string DataFileName = "data.xlsx";
 

@@ -29,7 +29,7 @@ namespace ProductX.Framework.Helpers
 	public static class GoogleApiHelper
 	{
 		private static readonly string[] Scopes = { SheetsService.Scope.Spreadsheets };
-		private const string AuthPath = "../../resources/";
+		private const string AuthPath = "Resources/";
 		private const string LinkRegex = "https(.+)[0-9]{1}\"";
 		private const string DataFile = "data.xlsx";
 		private const string ColumnRegexPattern = @"([A-Za-z]+)";

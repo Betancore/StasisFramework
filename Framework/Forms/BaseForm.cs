@@ -35,16 +35,6 @@ namespace ProductX.Framework.Forms
 		}
 
 		/// <summary>
-		/// Navigate to base page.
-		/// </summary>
-		public void GoToMainPage()
-		{
-			var mainPageUrl = SettingsHelper.GetValue(SettingsValues.BaseUrl);
-			Log.Info($"Navigating to {mainPageUrl}");
-			Browser.GetDriver().Navigate().GoToUrl(mainPageUrl);
-		}
-
-		/// <summary>
 		/// Asserts the text is present.
 		/// </summary>
 		/// <param name="text">The text.</param>

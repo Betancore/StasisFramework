@@ -77,7 +77,7 @@ namespace ProductX.Framework
 
 		private static IWebDriver SetupBrowser()
 		{
-			var environment = SettingsHelper.GetValue(SettingsValues.Env);
+			var environment = SettingsHelper.GetValue(SettingsValues.Environment);
 
 			switch (environment)
 			{
@@ -239,8 +239,7 @@ namespace ProductX.Framework
 				{BrowserStackCapabilityKeys.Resolution, BsResolution},
 				{BrowserStackCapabilityKeys.Console, "errors"},
 				{BrowserStackCapabilityKeys.Name, TestContext.CurrentContext.Test.Name},
-				{BrowserArguments.SafeBrowsingArgument, true.ToString().ToLower()},
-				{BrowserStackCapabilityKeys.Project, SettingsHelper.GetValue(SettingsValues.Tenant)}
+				{BrowserArguments.SafeBrowsingArgument, true.ToString().ToLower()}
 			};
 
 			return capabilities;

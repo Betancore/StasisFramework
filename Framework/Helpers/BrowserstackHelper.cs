@@ -18,7 +18,7 @@ namespace ProductX.Framework.Helpers
 		/// <param name="reason">Reason if the status.</param>
 		public static void SetSessionStatus(string status, string reason = null)
 		{
-			if (SettingsHelper.GetValue(SettingsValues.Env).ToLower() != "remote")
+			if (SettingsHelper.GetValue(SettingsValues.Environment).ToLower() != "remote")
 			{
 				throw new ArgumentException("Webdriver is not set up as remote. Check run.xml to configure remote run properly");
 			}
