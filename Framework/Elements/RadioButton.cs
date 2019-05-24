@@ -1,7 +1,7 @@
 ﻿using System;
 using OpenQA.Selenium;
 
-namespace ProductX.Framework.Elements
+namespace Stasis.Elements
 {
 	public class RadioButton : BaseElement
 	{

@@ -1,4 +1,4 @@
-﻿namespace ProductX.Framework.Enums
+﻿namespace Stasis.Enums
 {
 	public enum SettingsValues
 	{

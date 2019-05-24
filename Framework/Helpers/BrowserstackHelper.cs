@@ -3,9 +3,9 @@ using System.Net;
 using System.Text;
 using Newtonsoft.Json.Linq;
 using OpenQA.Selenium.Remote;
-using ProductX.Framework.Enums;
+using Stasis.Enums;
 
-namespace ProductX.Framework.Helpers
+namespace Stasis.Helpers
 {
 	public static class BrowserstackHelper
 	{

@@ -10,11 +10,11 @@ using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Safari;
 using OpenQA.Selenium.Support.UI;
-using ProductX.Framework.Constants;
-using ProductX.Framework.Enums;
-using ProductX.Framework.Helpers;
+using Stasis.Constants;
+using Stasis.Enums;
+using Stasis.Helpers;
 
-namespace ProductX.Framework
+namespace Stasis
 {
 	public static class Browser
 	{

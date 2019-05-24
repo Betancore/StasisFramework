@@ -1,9 +1,11 @@
-﻿namespace ProductX.Framework.DummyClasses
+﻿using DummyTests.Forms;
+
+namespace DummyTests.Steps
 {
 	public class Steps
 	{
-		private readonly Pages _pages;
-		public Steps(Pages pages)
+		private readonly FormsContainer _pages;
+		public Steps(FormsContainer pages)
 		{
 			_pages = pages;
 		}

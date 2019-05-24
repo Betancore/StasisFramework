@@ -1,10 +1,8 @@
 ﻿using log4net;
 using OpenQA.Selenium;
-using ProductX.Framework.Elements;
-using ProductX.Framework.Enums;
-using ProductX.Framework.Helpers;
+using Stasis.Elements;
 
-namespace ProductX.Framework.Forms
+namespace Stasis.Forms
 {
 	public class BaseForm
 	{

@@ -1,8 +1,8 @@
 ﻿using OpenQA.Selenium;
-using ProductX.Framework.Elements;
-using ProductX.Framework.Forms;
+using Stasis.Elements;
+using Stasis.Forms;
 
-namespace ProductX.Framework.DummyClasses
+namespace DummyTests.Forms
 {
 	public class FakeForm : BaseForm
 	{

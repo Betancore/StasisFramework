@@ -4,10 +4,10 @@ using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using NUnit.Framework.Internal;
 using NUnit.Framework.Internal.Commands;
-using ProductX.Framework.Enums;
-using ProductX.Framework.Helpers;
+using Stasis.Enums;
+using Stasis.Helpers;
 
-namespace ProductX.Framework.Attributes
+namespace Stasis.Attributes
 {
 	[AttributeUsage(AttributeTargets.Method, Inherited = false)]
 	public class CustomRetryAttribute : PropertyAttribute, IWrapSetUpTearDown

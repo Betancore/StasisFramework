@@ -16,12 +16,12 @@ using Google.Apis.Sheets.v4;
 using Google.Apis.Sheets.v4.Data;
 using Google.Apis.Util.Store;
 using NUnit.Framework;
-using ProductX.Framework.Enums;
-using ProductX.Framework.Models.Google;
 using Spritely.Recipes;
+using Stasis.Enums;
+using Stasis.Models.Google;
 using Thread = System.Threading.Thread;
 
-namespace ProductX.Framework.Helpers
+namespace Stasis.Helpers
 {
 	/// <summary>
 	///     Class GoogleApiHelper.

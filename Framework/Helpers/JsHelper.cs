@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace ProductX.Framework.Helpers
+namespace Stasis.Helpers
 {
 	public static class JsHelper
 	{

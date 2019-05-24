@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace ProductX.Framework.Helpers
+namespace Stasis.Helpers
 {
 	public static class RandomHelper
 	{

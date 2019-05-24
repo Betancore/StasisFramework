@@ -8,7 +8,7 @@
     <ProjectGuid>{420D4ED4-F2DB-4FB3-AC7F-C6E7733A401C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProductX</RootNamespace>
+    <RootNamespace>Stasis</RootNamespace>
     <AssemblyName>WebInfinityAutomation</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -161,7 +161,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include=".recipes\Spritely.Base64UrlExtensions\Base64UrlExtensions.cs" />
-    <Compile Include="DummyClasses\Actor.cs" />
     <Compile Include="BaseTest.cs" />
     <Compile Include="Browser.cs" />
     <Compile Include="Constants\BrowserArguments.cs" />
@@ -170,9 +169,6 @@
     <Compile Include="Constants\MobilePlatforms.cs" />
     <Compile Include="Constants\SeleniumServerLocations.cs" />
     <Compile Include="Attributes\CustomRetryAttribute.cs" />
-    <Compile Include="DummyClasses\FakeForm.cs" />
-    <Compile Include="DummyClasses\Pages.cs" />
-    <Compile Include="DummyClasses\Steps.cs" />
     <Compile Include="Elements\BaseElement.cs" />
     <Compile Include="Elements\Button.cs" />
     <Compile Include="Elements\ComboBox.cs" />

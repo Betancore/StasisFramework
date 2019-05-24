@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace ProductX.Framework.Extensions
+namespace Stasis.Extensions
 {
 	public static class EnumExtensions
 	{

@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace ProductX.Framework.Elements
+namespace Stasis.Elements
 {
 	public class ComboBox : BaseElement
 	{

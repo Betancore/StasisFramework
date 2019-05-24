@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ProductX.Framework.Extensions
+namespace Stasis.Extensions
 {
 	public static class StringExtensions
 	{

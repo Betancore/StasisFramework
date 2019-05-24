@@ -2,9 +2,9 @@
 using System.IO;
 using System.Xml;
 using ClosedXML.Excel;
-using ProductX.Framework.Enums;
+using Stasis.Enums;
 
-namespace ProductX.Framework.Helpers
+namespace Stasis.Helpers
 {
 	/// <summary>
 	/// Class SettingsHelper.

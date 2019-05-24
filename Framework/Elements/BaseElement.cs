@@ -4,10 +4,10 @@ using System.Threading;
 using log4net;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
-using ProductX.Framework.Enums;
-using ProductX.Framework.Helpers;
+using Stasis.Enums;
+using Stasis.Helpers;
 
-namespace ProductX.Framework.Elements
+namespace Stasis.Elements
 {
 	public abstract class BaseElement
 	{

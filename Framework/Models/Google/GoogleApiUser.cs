@@ -1,4 +1,4 @@
-﻿namespace ProductX.Framework.Models.Google
+﻿namespace Stasis.Models.Google
 {
 	public class GoogleApiUser
 	{

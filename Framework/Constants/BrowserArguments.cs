@@ -1,4 +1,4 @@
-﻿namespace ProductX.Framework.Constants
+﻿namespace Stasis.Constants
 {
 	public static class BrowserArguments
 	{

@@ -1,13 +1,13 @@
 ﻿using System;
-using ProductX.Framework.Enums;
-using ProductX.Framework.Helpers;
 using log4net;
 using NUnit.Framework;
-using ProductX.Framework.Constants;
-using ProductX.Framework.Extensions;
-using ProductX.Framework.Models.Google;
+using Stasis.Extensions;
+using Stasis.Constants;
+using Stasis.Enums;
+using Stasis.Helpers;
+using Stasis.Models.Google;
 
-namespace ProductX.Framework
+namespace Stasis
 {
 	[TestFixture]
 	public class BaseTest
