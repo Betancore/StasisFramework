@@ -1,20 +1,15 @@
 ﻿namespace ProductX.Framework.Enums
 {
-	public enum RunValues
+	public enum SettingsValues
 	{
-		Env,
-		Tenant,
-		Username,
-		Password,
-		BaseUrl,
-		Zap,
-		ZapPort,
+		Environment,
 		Browser,
 		Timeout,
 		PollingInterval,
 		RetryCount,
 		UseLocalData,
 		UpdateTestData,
+		EnableScreenshoting,
 		BsUser,
 		BsKey,
 		BsPlatform,
@@ -26,11 +21,6 @@
 		BsOsPlatform,
 		BsResolution,
 		BsDevice,
-		BsRemoteServer,
-		SwServer,
-		SwUsername,
-		SwPassword,
-		SwDbName,
-		SwEnv
+		BsRemoteServer
 	}
 }

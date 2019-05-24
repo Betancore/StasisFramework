@@ -18,7 +18,7 @@ namespace ProductX.Framework.Helpers
 		/// <param name="reason">Reason if the status.</param>
 		public static void SetSessionStatus(string status, string reason = null)
 		{
-			if (RunConfigurator.GetValue(RunValues.Env).ToLower() != "remote")
+			if (SettingsHelper.GetValue(SettingsValues.Env).ToLower() != "remote")
 			{
 				throw new ArgumentException("Webdriver is not set up as remote. Check run.xml to configure remote run properly");
 			}
@@ -37,7 +37,7 @@ namespace ProductX.Framework.Helpers
 				st.Write(requestData, 0, requestData.Length);
 			}
 
-			var networkCredential = new NetworkCredential(RunConfigurator.GetValue("bsUser"), RunConfigurator.GetValue("bsKey"));
+			var networkCredential = new NetworkCredential(SettingsHelper.GetValue("bsUser"), SettingsHelper.GetValue("bsKey"));
 			var credentialCache = new CredentialCache {{uri, "Basic", networkCredential}};
 			httpWebRequest.PreAuthenticate = true;
 			httpWebRequest.Credentials = credentialCache;

@@ -5,6 +5,7 @@ using log4net;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using ProductX.Framework.Enums;
+using ProductX.Framework.Helpers;
 
 namespace ProductX.Framework.Elements
 {
@@ -13,8 +14,8 @@ namespace ProductX.Framework.Elements
 		private readonly By _locator;
 		private readonly string _name;
 		private readonly IWebElement _element;
-		protected readonly int DefaultTimeout = Convert.ToInt32(RunConfigurator.GetValue(RunValues.Timeout));
-		protected readonly int DefaultPollingInterval = Convert.ToInt32(RunConfigurator.GetValue(RunValues.PollingInterval));
+		protected readonly int DefaultTimeout = Convert.ToInt32(SettingsHelper.GetValue(SettingsValues.Timeout));
+		protected readonly int DefaultPollingInterval = Convert.ToInt32(SettingsHelper.GetValue(SettingsValues.PollingInterval));
 		protected static readonly ILog Log = LogManager.GetLogger(typeof(BaseElement));
 		private IWebElement Element => _element ?? Browser.GetDriver().FindElements(_locator).FirstOrDefault();
 

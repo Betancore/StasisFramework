@@ -12,38 +12,41 @@ using OpenQA.Selenium.Safari;
 using OpenQA.Selenium.Support.UI;
 using ProductX.Framework.Constants;
 using ProductX.Framework.Enums;
+using ProductX.Framework.Helpers;
 
 namespace ProductX.Framework
 {
-	public class Browser
+	public static class Browser
 	{
 		private const string DriverPath = "../../resources/";
 		private static IWebDriver _driver;
-		private static readonly TimeSpan Timeout = TimeSpan.FromMilliseconds(int.Parse(RunConfigurator.GetValue(RunValues.Timeout)));
-		private static readonly TimeSpan PollingInterval = TimeSpan.FromMilliseconds(int.Parse(RunConfigurator.GetValue(RunValues.PollingInterval)));
-		private static readonly string PlatformType = RunConfigurator.GetValue(RunValues.BsPlatform);
+		private static readonly TimeSpan Timeout = TimeSpan.FromMilliseconds(int.Parse(SettingsHelper.GetValue(SettingsValues.Timeout)));
+		private static readonly TimeSpan PollingInterval = TimeSpan.FromMilliseconds(int.Parse(SettingsHelper.GetValue(SettingsValues.PollingInterval)));
+		private static readonly string PlatformType = SettingsHelper.GetValue(SettingsValues.BsPlatform);
 		private static readonly string DriverType =
-			RunConfigurator.GetValue(PlatformType.ToLower() == "desktop" ? RunValues.BsBrowser : RunValues.BsBrowserName);
-		private static readonly string BrowserType = RunConfigurator.GetValue(RunValues.Browser);
-		private static readonly string BsUser = RunConfigurator.GetValue(RunValues.BsUser);
-		private static readonly string BsKey = RunConfigurator.GetValue(RunValues.BsKey);
-		private static readonly string BsBrowserName = RunConfigurator.GetValue(RunValues.BsBrowserName);
-		private static readonly string BsOsPlatform = RunConfigurator.GetValue(RunValues.BsOsPlatform);
-		private static readonly string BsOsVersion = RunConfigurator.GetValue(RunValues.BsOsVersion);
-		private static readonly string BsDevice = RunConfigurator.GetValue(RunValues.BsDevice);
-		private static readonly string BsBrowserType = RunConfigurator.GetValue(RunValues.BsBrowser);
-		private static readonly string BsBrowserVersion = RunConfigurator.GetValue(RunValues.BsBrowserVersion);
-		private static readonly string BsOs = RunConfigurator.GetValue(RunValues.BsOs);
-		private static readonly string BsResolution = RunConfigurator.GetValue(RunValues.BsResolution);
-		private static readonly string BsRemoteServer = RunConfigurator.GetValue(RunValues.BsRemoteServer);
-		private static readonly string ZapProxy = $"localhost:{RunConfigurator.GetValue(RunValues.ZapPort)}";
+			SettingsHelper.GetValue(PlatformType.ToLower() == "desktop" ? SettingsValues.BsBrowser : SettingsValues.BsBrowserName);
+		private static readonly string BrowserType = SettingsHelper.GetValue(SettingsValues.Browser);
+		private static readonly string BsUser = SettingsHelper.GetValue(SettingsValues.BsUser);
+		private static readonly string BsKey = SettingsHelper.GetValue(SettingsValues.BsKey);
+		private static readonly string BsBrowserName = SettingsHelper.GetValue(SettingsValues.BsBrowserName);
+		private static readonly string BsOsPlatform = SettingsHelper.GetValue(SettingsValues.BsOsPlatform);
+		private static readonly string BsOsVersion = SettingsHelper.GetValue(SettingsValues.BsOsVersion);
+		private static readonly string BsDevice = SettingsHelper.GetValue(SettingsValues.BsDevice);
+		private static readonly string BsBrowserType = SettingsHelper.GetValue(SettingsValues.BsBrowser);
+		private static readonly string BsBrowserVersion = SettingsHelper.GetValue(SettingsValues.BsBrowserVersion);
+		private static readonly string BsOs = SettingsHelper.GetValue(SettingsValues.BsOs);
+		private static readonly string BsResolution = SettingsHelper.GetValue(SettingsValues.BsResolution);
+		private static readonly string BsRemoteServer = SettingsHelper.GetValue(SettingsValues.BsRemoteServer);
 
 		/// <summary>
-		///     Gets the driver.
+		/// Gets the driver.
 		/// </summary>
 		/// <returns>IWebDriver.</returns>
 		public static IWebDriver GetDriver() => _driver ?? (_driver = SetupBrowser());
 
+		/// <summary>
+		/// Quits driver.
+		/// </summary>
 		public static void Close()
 		{
 			if (_driver == null)
@@ -55,10 +58,16 @@ namespace ProductX.Framework
 			_driver = null;
 		}
 
-		public static WebDriverWait Wait(TimeSpan timeout = default(TimeSpan), TimeSpan pollingInterval = default(TimeSpan))
+		/// <summary>
+		/// Creates instance of WebDriverWait.
+		/// </summary>
+		/// <param name="timeout">Timeout.</param>
+		/// <param name="pollingInterval">Polling interval.</param>
+		/// <returns>WebDriverWait.</returns>
+		public static WebDriverWait Wait(TimeSpan timeout = default, TimeSpan pollingInterval = default)
 		{
-			if (timeout.Ticks == 0) timeout = Timeout;
-			if (pollingInterval.Ticks == 0) pollingInterval = PollingInterval;
+			timeout = timeout.Ticks == 0 ? Timeout : timeout;
+			pollingInterval = pollingInterval.Ticks == 0 ? PollingInterval : pollingInterval;
 
 			return new WebDriverWait(_driver, timeout)
 			{
@@ -68,9 +77,9 @@ namespace ProductX.Framework
 
 		private static IWebDriver SetupBrowser()
 		{
-			var env = RunConfigurator.GetValue(RunValues.Env);
+			var environment = SettingsHelper.GetValue(SettingsValues.Env);
 
-			switch (env)
+			switch (environment)
 			{
 				case SeleniumServerLocations.Remote:
 					{
@@ -96,9 +105,10 @@ namespace ProductX.Framework
 								return new ChromeDriver(Path.GetFullPath(DriverPath));
 						}
 					}
-			}
 
-			return new ChromeDriver(Path.GetFullPath(DriverPath));
+				default:
+					return new ChromeDriver(Path.GetFullPath(DriverPath));
+			}
 		}
 
 		#region Remote options
@@ -137,10 +147,10 @@ namespace ProductX.Framework
 		/// <summary>
 		/// Instead of creating elegant and small method I have to develop this because AddAdditionalCapability does not set isGlobalCapability == true
 		/// implicitly for some browsers. So for Chrome, IE, Firefox you should do it manually, for Safari, Edge - not (AddAdditionalCapability does not
-		/// even have such parameter, same as base DriverOptions)
+		/// even have such parameter, same as base DriverOptions).
 		/// </summary>
-		/// <param name="options"></param>
-		/// <returns></returns>
+		/// <param name="options">Driver options.</param>
+		/// <returns>DriverOptions.</returns>
 		private static DriverOptions GetRemoteDesktopDriverOptions(DriverOptions options)
 		{
 			var capabilities = GetRemoteDesktopCapabilitiesSet();
@@ -200,19 +210,6 @@ namespace ProductX.Framework
 					options.AddUserProfilePreference(BrowserArguments.SafeBrowsingArgument, true);
 					options.AddArgument(BrowserArguments.DisableWebSecurity);
 					options.AddArgument(BrowserArguments.DisableSiteIsolationTrials);
-					if (RunConfigurator.GetValue(RunValues.Zap) != "true")
-					{
-						return options;
-					}
-
-					var proxy = new Proxy
-					{
-						HttpProxy = ZapProxy,
-						FtpProxy = ZapProxy,
-						SslProxy = ZapProxy
-					};
-
-					options.Proxy = proxy;
 					options.AddArgument(BrowserArguments.IgnoreCertificatesArgument);
 
 					return options;
@@ -243,7 +240,7 @@ namespace ProductX.Framework
 				{BrowserStackCapabilityKeys.Console, "errors"},
 				{BrowserStackCapabilityKeys.Name, TestContext.CurrentContext.Test.Name},
 				{BrowserArguments.SafeBrowsingArgument, true.ToString().ToLower()},
-				{BrowserStackCapabilityKeys.Project, RunConfigurator.GetValue(RunValues.Tenant)}
+				{BrowserStackCapabilityKeys.Project, SettingsHelper.GetValue(SettingsValues.Tenant)}
 			};
 
 			return capabilities;

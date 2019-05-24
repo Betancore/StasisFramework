@@ -2,6 +2,7 @@
 using OpenQA.Selenium;
 using ProductX.Framework.Elements;
 using ProductX.Framework.Enums;
+using ProductX.Framework.Helpers;
 
 namespace ProductX.Framework.Forms
 {
@@ -38,7 +39,7 @@ namespace ProductX.Framework.Forms
 		/// </summary>
 		public void GoToMainPage()
 		{
-			var mainPageUrl = RunConfigurator.GetValue(RunValues.BaseUrl);
+			var mainPageUrl = SettingsHelper.GetValue(SettingsValues.BaseUrl);
 			Log.Info($"Navigating to {mainPageUrl}");
 			Browser.GetDriver().Navigate().GoToUrl(mainPageUrl);
 		}

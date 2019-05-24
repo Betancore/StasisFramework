@@ -1,19 +1,14 @@
 <xml>
 		<!-- possible values: remote ; local;-->
-	<env>local</env>
-		<!--  possible values: auto ; prm ; prmclone; integration-->
-	<tenant></tenant>
-	<username></username>
-	<password></password>
-	<baseUrl></baseUrl>
-	<zap></zap>
-	<zapPort></zapPort>
+	<environment>local</environment>
 	<browser>chrome</browser>
 		<!-- App settings -->
 	<timeout>60000</timeout>
 	<pollingInterval>1000</pollingInterval>
 	<retryCount>0</retryCount>
 	<useLocalData>yes</useLocalData>
+	<updateTestData>yes</updateTestData>
+	<enableScreenshoting>no</enableScreenshoting>
 		<!-- BrowserStack Common Capabilities -->
 	<bsUser></bsUser>
 	<bsKey></bsKey>

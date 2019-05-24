@@ -251,8 +251,8 @@ namespace ProductX.Framework.Helpers
 			var cell = range.Substring(firstSymbol, lastSymbol);
 			var sheetName = range.Substring(0, range.IndexOf("!", StringComparison.Ordinal));
 
-			return RunConfigurator.GetValue(RunValues.UseLocalData) == "yes"
-				? RunConfigurator.GetXlsValue(sheetName, cell)
+			return SettingsHelper.GetValue(SettingsValues.UseLocalData) == "yes"
+				? SettingsHelper.GetXlsValue(sheetName, cell)
 				: GetDataDirectly(range, spreadSheetId, apiUser);
 		}
 
@@ -307,7 +307,7 @@ namespace ProductX.Framework.Helpers
 				};
 
 			request.Download(stream);
-			var filePath = $"{RunConfigurator.ResourcePath}{DataFile}";
+			var filePath = $"{SettingsHelper.ResourcePath}{DataFile}";
 
 			if (File.Exists(filePath))
 			{

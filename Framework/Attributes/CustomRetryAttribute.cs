@@ -5,6 +5,7 @@ using NUnit.Framework.Interfaces;
 using NUnit.Framework.Internal;
 using NUnit.Framework.Internal.Commands;
 using ProductX.Framework.Enums;
+using ProductX.Framework.Helpers;
 
 namespace ProductX.Framework.Attributes
 {
@@ -19,7 +20,7 @@ namespace ProductX.Framework.Attributes
 		/// <param name="count">The number of times to run the test.</param>
 		public CustomRetryAttribute([Optional]int count) : base(count)
 		{
-			_count = count == 0 ? int.Parse(RunConfigurator.GetValue(RunValues.RetryCount)) : count;
+			_count = count == 0 ? int.Parse(SettingsHelper.GetValue(SettingsValues.RetryCount)) : count;
 		}
 
 		#region IWrapSetUpTearDown Members
