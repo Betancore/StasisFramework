@@ -5,7 +5,6 @@ using Stasis.Extensions;
 using Stasis.Constants;
 using Stasis.Enums;
 using Stasis.Helpers;
-using Stasis.Models.Google;
 
 namespace Stasis
 {
@@ -18,16 +17,6 @@ namespace Stasis
 		public BaseTest(string url)
 		{
 			_baseUrl = url;
-		}
-
-		[OneTimeSetUp]
-		public void Initialize()
-		{
-			if (SettingsHelper.GetValue(SettingsValues.UpdateTestData) == "yes")
-			{
-				// Mocked to avoid compilation level errors
-				GoogleApiHelper.ExportTestDataTable(new GoogleApiUser(), "dummy spreadsheet id");
-			}
 		}
 
 		[SetUp]

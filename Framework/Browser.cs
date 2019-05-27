@@ -18,7 +18,7 @@ namespace Stasis
 {
 	public static class Browser
 	{
-		private const string DriverPath = "../../resources/";
+		private const string DriverPath = "Resources/";
 		private static IWebDriver _driver;
 		private static readonly TimeSpan Timeout = TimeSpan.FromMilliseconds(int.Parse(SettingsHelper.GetValue(SettingsValues.Timeout)));
 		private static readonly TimeSpan PollingInterval = TimeSpan.FromMilliseconds(int.Parse(SettingsHelper.GetValue(SettingsValues.PollingInterval)));

@@ -7,7 +7,7 @@
 	<pollingInterval>1000</pollingInterval>
 	<retryCount>0</retryCount>
 	<useLocalData>yes</useLocalData>
-	<updateTestData>yes</updateTestData>
+	<updateTestData>no</updateTestData>
 	<enableScreenshoting>no</enableScreenshoting>
 		<!-- BrowserStack Common Capabilities -->
 	<bsUser></bsUser>
